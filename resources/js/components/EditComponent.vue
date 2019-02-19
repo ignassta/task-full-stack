@@ -1,30 +1,24 @@
 <template>
-    <div>
+    <div class="container" id="edit-form-holder">
         <h1>Edit User</h1>
-        <form @submit.prevent="updatePost">
+        <form @submit.prevent="updateUser">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Name:</label>
-                        <input type="text" class="form-control" v-model="user.name">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" class="form-control" id="edit-name" v-model="user.name">
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Email:</label>
-                        <input type="text" class="form-control" v-model="user.email">
+                        <label for="edit-email">Email:</label>
+                        <input type="text" class="form-control" id="edit-email" v-model="user.email">
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Phone:</label>
-                        <input type="text" class="form-control" v-model="user.phone">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Address:</label>
-                        <input type="text" class="form-control" v-model="user.address">
+                        <label for="edit-phone">Phone:</label>
+                        <input type="text" class="form-control" id="edit-phone" v-model="user.phone">
                     </div>
                 </div>
             </div>
@@ -35,6 +29,11 @@
                     </div>
                 </div>
             </div>
+            <div v-if="errors.length > 0">
+                <ul>
+                    <li v-for="error in errors"><span class="badge badge-danger">{{ error }}</span></li>
+                </ul>
+            </div>
         </form>
     </div>
 </template>
@@ -44,21 +43,35 @@
 
         data() {
             return {
-                user: {}
+                user: {},
+                errors: []
             }
         },
         created() {
-            let uri = `http://127.0.0.1:8000/api/user/edit/${this.$route.params.id}`;
+            let uri = `/api/user/edit/${this.$route.params.id}`;
             this.axios.get(uri).then((response) => {
                 this.user = response.data;
             });
         },
         methods: {
-            updatePost() {
-                let uri = `http://127.0.0.1:8000/api/user/update/${this.$route.params.id}`;
+            updateUser() {
+                let uri = `/api/user/update/${this.$route.params.id}`;
                 this.axios.post(uri, this.user).then((response) => {
-                    this.$router.push({name: 'users'});
-                });
+                    this.$router
+                        .push({name: 'users'})
+                })
+                .catch(error => {
+                    this.errors = [];
+                    if (error.response.data.errors.name) {
+                        this.errors.push(error.response.data.errors.name[0]);
+                    }
+                    if (error.response.data.errors.email) {
+                        this.errors.push(error.response.data.errors.email[0]);
+                    }
+                    if (error.response.data.errors.phone) {
+                        this.errors.push(error.response.data.errors.phone[0]);
+                    }
+                })
             }
         }
     }

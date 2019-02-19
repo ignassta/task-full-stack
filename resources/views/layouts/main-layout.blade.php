@@ -13,9 +13,8 @@
 
 <div class="container" id="footer">
     <div class="row">
-        <div class="col">
-            <span>{{__('Junior full-stack PHP Developer task')}}</span>
-            <span>{{__('Made by Ignas S. 2019')}}</span>
+        <div class="col" id="footer-text-holder">
+            <span>{{__('Junior full-stack PHP Developer task made by Ignas S. 2019')}}</span>
         </div>
     </div>
 </div>

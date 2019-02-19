@@ -1,14 +1,88 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body {
+  background-color: #F8F8F8;
+  color: #404040;
+  font-family: "Nunito", sans-serif;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
 }
+
+#user-list-holder, #create-form-holder, #edit-form-holder {
+  padding-top: 20px;
+
+  .btn, .form-control {
+    border-radius: 0;
+    border: 2px solid #404040;
+  }
+  .btn {
+    color: #F8F8F8;
+    font-weight: 700;
+    background-color: #404040;
+    transition: all .3s;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+  .btn-edit {
+    background-color: #888888;
+    border: 2px solid #888888;
+  }
+}
+
+#navbar-holder {
+  background-color: #404040;
+
+  .nav-link {
+    color: #F8F8F8;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all .3s;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+#footer {
+
+  #footer-text-holder {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+
+  h1 {
+    font-size: 25px;
+  }
+  #user-list-holder, #user-list-holder a, #user-list-holder button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  #user-list-holder, #user-list-holder a, #user-list-holder button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+
+}
+

@@ -17,7 +17,6 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'phone' => $faker->numerify($string = '### # #######'),
-        'address' => $faker->sentence,
+        'phone' => $faker->numerify($string = '###########'),
     ];
 });

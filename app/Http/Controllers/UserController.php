@@ -15,16 +15,21 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required | email | max:50',
+            'name'  => 'required | min:2 | max:50',
+            'phone' => 'required | numeric | max:999999999999999',
+        ]);
+
         $user = new User([
-            'name' => $request->get('name'),
+            'name'  => $request->get('name'),
             'email' => $request->get('email'),
             'phone' => $request->get('phone'),
-            'address' => $request->get('address'),
         ]);
 
         $user->save();
 
-        return response()->json('successfully added');
+        return response()->json('successfully added', 200);
     }
 
     public function edit($id)
@@ -35,6 +40,12 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required | email | max:50',
+            'name'  => 'required | min:2 | max:50',
+            'phone' => 'required | numeric | max:999999999999999',
+        ]);
+
         $user = User::find($id);
 
         $user->update($request->all());
