@@ -23,7 +23,7 @@ Follow these steps to install the project:
 4. copy .env.exmple file and name it .env on your project root folder
 ```
 ```
-5. Edit DB_DATABASE, DB_USERNAME, DB_PASSWORD according to your needs
+5. Edit DB_DATABASE, DB_USERNAME, DB_PASSWORD in .env file according to your needs
 ```
 ```
 6. Run php artisan key:generate in terminal
