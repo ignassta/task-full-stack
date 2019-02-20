@@ -2004,6 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37501,11 +37502,17 @@ var render = function() {
                 return _c("tr", { key: user.id }, [
                   _c("td", [_vm._v(_vm._s(user.id))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(user.name))]),
+                  _c("td", { staticClass: "break-word" }, [
+                    _vm._v(_vm._s(user.name))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(user.email))]),
+                  _c("td", { staticClass: "break-word" }, [
+                    _vm._v(_vm._s(user.email))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(user.phone))]),
+                  _c("td", { staticClass: "break-word" }, [
+                    _vm._v(_vm._s(user.phone))
+                  ]),
                   _vm._v(" "),
                   _c(
                     "td",
@@ -37519,26 +37526,24 @@ var render = function() {
                           }
                         },
                         [_vm._v("Edit")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deleteUser(user.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete")]
                       )
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.deleteUser(user.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    )
-                  ])
+                  )
                 ])
               }),
               0
@@ -37564,9 +37569,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Phone")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Actions")]),
-        _vm._v(" "),
-        _c("th")
+        _c("th", [_vm._v("Actions")])
       ])
     ])
   }
