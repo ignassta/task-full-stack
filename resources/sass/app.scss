@@ -53,6 +53,26 @@ body {
   }
 }
 
+#user-list-holder {
+
+  .break-word {
+    word-break: break-word;
+  }
+  .btn {
+    margin: 3px;
+    padding: 4px 0;
+    width: 70px;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+  .btn-edit {
+    background-color: #888888;
+    border: 2px solid #888888;
+  }
+}
+
 #footer {
 
   #footer-text-holder {

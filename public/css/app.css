@@ -10719,6 +10719,25 @@ body ul {
   opacity: 0.7;
 }
 
+#user-list-holder .break-word {
+  word-break: break-word;
+}
+
+#user-list-holder .btn {
+  margin: 3px;
+  padding: 4px 0;
+  width: 70px;
+}
+
+#user-list-holder .btn:hover {
+  opacity: 0.7;
+}
+
+#user-list-holder .btn-edit {
+  background-color: #888888;
+  border: 2px solid #888888;
+}
+
 #footer #footer-text-holder {
   text-align: center;
   font-size: 14px;

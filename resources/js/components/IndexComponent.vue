@@ -11,17 +11,18 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Actions</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="user in users" :key="user.id">
                         <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.phone }}</td>
-                        <td><router-link :to="{name: 'edit', params: { id: user.id }}" class="btn btn-edit">Edit</router-link></td>
-                        <td><button class="btn" @click.prevent="deleteUser(user.id)">Delete</button></td>
+                        <td class="break-word">{{ user.name }}</td>
+                        <td class="break-word">{{ user.email }}</td>
+                        <td class="break-word">{{ user.phone }}</td>
+                        <td>
+                            <router-link :to="{name: 'edit', params: { id: user.id }}" class="btn btn-edit">Edit</router-link>
+                            <button class="btn" @click.prevent="deleteUser(user.id)">Delete</button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
